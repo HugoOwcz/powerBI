@@ -1,0 +1,83 @@
+table Donne_Vente
+	lineageTag: 24a75b67-ea06-4d74-8d18-277ec07f6481
+
+	measure 'Total Ventes' = SUM(Donne_Vente[Ventes])
+		formatString: 0
+		lineageTag: a3f59019-0a33-4d28-b9c4-56821f589006
+
+	measure 'Total Couts' = SUM(Donne_Vente[Couts])
+		formatString: 0
+		lineageTag: 1bd19488-b6cd-409a-aa60-bf896e661c70
+
+	measure 'Total Profits' = SUM(Donne_Vente[Profits])
+		formatString: 0
+		lineageTag: 0a3c213f-076f-417d-b637-10666b41fa04
+
+	column Date
+		dataType: dateTime
+		formatString: d mmmm yyyy
+		lineageTag: 61914768-ee9f-4829-aa57-b7d5b97871ef
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 40f996c2-7933-48c8-ab1b-b3c41b77b5f0
+			defaultHierarchy: LocalDateTable_96041c9a-8e87-4526-b44d-84d0ec903ad1.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Produit
+		dataType: string
+		lineageTag: ebfbff0e-0d42-4acd-81f6-d882be358eba
+		summarizeBy: none
+		sourceColumn: Produit
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ventes
+		dataType: int64
+		formatString: 0
+		lineageTag: df481fda-4939-4000-b401-87ec380d17e6
+		summarizeBy: sum
+		sourceColumn: Ventes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Couts
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d6d3781-dfa0-43cd-8706-5a507951f85a
+		summarizeBy: sum
+		sourceColumn: Couts
+
+		annotation SummarizationSetBy = Automatic
+
+	column Profits
+		dataType: int64
+		formatString: 0
+		lineageTag: 773a75ae-3fb6-4ce0-bd68-e9ca1616b348
+		summarizeBy: sum
+		sourceColumn: Profits
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Donne_Vente = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\hugza\SAS Groupe ADF\EO - Stages Data Sciences 2025 - Bi - Bi\Groupe_de_calcul\Donnees_Ventes_PowerBI.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"En-têtes promus" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"Date", type date}, {"Produit", type text}, {"Ventes", Int64.Type}, {"Couts", Int64.Type}, {"Profits", Int64.Type}})
+				in
+				    #"Type modifié"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

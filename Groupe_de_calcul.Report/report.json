@@ -1,0 +1,78 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"type\":2,\"version\":\"5.59\"}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "cd384ce3029976b3bbb4",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"16a98968be6f589d3a7b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":168.01606834705365,\"y\":393.96871198619476,\"z\":4000,\"width\":422.93699963223855,\"height\":203.9367450281479,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Values\":[{\"queryRef\":\"Donne_Vente.Total Ventes\"}],\"Rows\":[{\"queryRef\":\"Donne_Vente.Produit\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Donne_Vente\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Ventes\"},\"Name\":\"Donne_Vente.Total Ventes\",\"NativeReferenceName\":\"Total Ventes\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Produit\"},\"Name\":\"Donne_Vente.Produit\",\"NativeReferenceName\":\"Produit\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Ventes\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 203.94,
+          "width": 422.94,
+          "x": 168.02,
+          "y": 393.97,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"803b22cdb41d39d868b2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1024.3186511641065,\"y\":108.92076154912444,\"z\":1000,\"width\":215.52406008656538,\"height\":150.63509575942743,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Periode.Colonne du groupe de calcul\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Periode\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Type de periode\"},\"Name\":\"Periode.Colonne du groupe de calcul\",\"NativeReferenceName\":\"Type de periode\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Periode\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Type de periode\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'YTD'\"}}]]}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 150.64,
+          "width": 215.52,
+          "x": 1024.32,
+          "y": 108.92,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"95ce18d75225b1412c6b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":329.0797476590568,\"y\":71.84135336218846,\"z\":0,\"width\":460.0164078191745,\"height\":136.73031768932643,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Donne_Vente.Produit\"},{\"queryRef\":\"Donne_Vente.Total Ventes\"},{\"queryRef\":\"Donne_Vente.Total Profits\"},{\"queryRef\":\"Donne_Vente.Date\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Donne_Vente\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Produit\"},\"Name\":\"Donne_Vente.Produit\",\"NativeReferenceName\":\"Produit\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Ventes\"},\"Name\":\"Donne_Vente.Total Ventes\",\"NativeReferenceName\":\"Total Ventes\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Profits\"},\"Name\":\"Donne_Vente.Total Profits\",\"NativeReferenceName\":\"Total Profits\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"},\"Name\":\"Donne_Vente.Date\",\"NativeReferenceName\":\"Date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Produit\"}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 136.73,
+          "width": 460.02,
+          "x": 329.08,
+          "y": 71.84,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"a1e64aaa8840e4c9e6fc\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1035.905966222524,\"y\":456.54021330164926,\"z\":3000,\"width\":115.87315058417494,\"height\":150.63509575942743,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Donne_Vente.Produit\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Donne_Vente\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Produit\"},\"Name\":\"Donne_Vente.Produit\",\"NativeReferenceName\":\"Produit\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 150.64,
+          "width": 115.87,
+          "x": 1035.91,
+          "y": 456.54,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"b4670efd8cc93aca25ea\",\"layouts\":[{\"id\":0,\"position\":{\"x\":42,\"y\":109,\"width\":216,\"height\":151,\"z\":2000,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Donne_Vente.Date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Donne_Vente\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"},\"Name\":\"Donne_Vente.Date\",\"NativeReferenceName\":\"Date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2022-01-01T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Donne_Vente\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":2,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"}},\"Right\":{\"Literal\":{\"Value\":\"datetime'2022-01-01T00:00:00'\"}}}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 151.00,
+          "width": 216.00,
+          "x": 42.00,
+          "y": 109.00,
+          "z": 2000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+relationship 40f996c2-7933-48c8-ab1b-b3c41b77b5f0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Donne_Vente.Date
+	toColumn: LocalDateTable_96041c9a-8e87-4526-b44d-84d0ec903ad1.Date
+

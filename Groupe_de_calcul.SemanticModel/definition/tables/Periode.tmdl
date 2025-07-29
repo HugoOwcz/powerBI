@@ -1,0 +1,34 @@
+table Periode
+	lineageTag: 5f193527-c046-4bae-a6d0-35f3bf720dab
+
+	calculationGroup
+
+		calculationItem Actuel = SELECTEDMEASURE()
+
+		calculationItem YTD = TOTALYTD(SELECTEDMEASURE(), 'Donne_Vente'[Date])
+
+		calculationItem MTD = TOTALMTD(SELECTEDMEASURE(), 'Donne_Vente'[Date])
+
+		calculationItem '% Var. YTD N-1' =
+				VAR Actuel = SELECTEDMEASURE()
+				VAR AnDernier = CALCULATE(SELECTEDMEASURE(), SAMEPERIODLASTYEAR('Donne_Vente'[Date]))
+				RETURN DIVIDE(Actuel - AnDernier, AnDernier)
+
+	column 'Type de periode'
+		dataType: string
+		lineageTag: 628a7eb0-7257-4019-9a7c-1ba85d20da2c
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordinal
+		dataType: int64
+		formatString: 0
+		lineageTag: 331b6d24-7be5-49fd-9502-ed887354fe99
+		summarizeBy: sum
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
