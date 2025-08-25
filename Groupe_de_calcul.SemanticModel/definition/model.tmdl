@@ -7,11 +7,11 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["Donne_Vente"]
+annotation PBI_QueryOrder = ["Donne_Vente","Clients","Commandes"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBIDesktopVersion = 2.145.1262.0 (25.07)+10bdeda5ab0db954b2cf824e7a117ad7cee97f88
+annotation PBIDesktopVersion = 2.146.1026.0 (25.08)+fb98ab832373de81dccd5c01cd96306a48477556
 
 annotation PBI_ProTooling = ["CalcGroup","DevMode"]
 
@@ -19,6 +19,9 @@ ref table Donne_Vente
 ref table DateTableTemplate_4d2748b3-5cb9-47c9-bc92-6255c86bf700
 ref table LocalDateTable_96041c9a-8e87-4526-b44d-84d0ec903ad1
 ref table Periode
+ref table Clients
+ref table Commandes
+ref table LocalDateTable_4c2d41e0-5625-4ab2-9cb3-bb2f7cccac72
 
 ref cultureInfo fr-FR
 

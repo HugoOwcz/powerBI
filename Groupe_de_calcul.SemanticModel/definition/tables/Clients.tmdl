@@ -1,0 +1,51 @@
+table Clients
+	lineageTag: 1de57fae-2486-4c6c-80ff-649241abc87f
+
+	column ClientID
+		dataType: int64
+		formatString: 0
+		lineageTag: 49c691c1-af28-44e2-9816-1c2e9a947087
+		summarizeBy: none
+		sourceColumn: ClientID
+
+		annotation SummarizationSetBy = Automatic
+
+	column NomClient
+		dataType: string
+		lineageTag: 979ab743-9893-4dc2-9486-d42c3ac03d88
+		summarizeBy: none
+		sourceColumn: NomClient
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ville
+		dataType: string
+		lineageTag: 51c9ae01-5203-4b67-ac38-52a4a6058cc4
+		summarizeBy: none
+		sourceColumn: Ville
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pays
+		dataType: string
+		lineageTag: ab3b2d7d-19c1-47fd-953f-cb4fbbdb96b1
+		summarizeBy: none
+		sourceColumn: Pays
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Clients = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\hugza\Bureau\powerBI\Clients.xlsx"), null, true),
+				    Clients_Sheet = Source{[Item="Clients",Kind="Sheet"]}[Data],
+				    #"En-têtes promus" = Table.PromoteHeaders(Clients_Sheet, [PromoteAllScalars=true]),
+				    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"ClientID", Int64.Type}, {"NomClient", type text}, {"Ville", type text}, {"Pays", type text}})
+				in
+				    #"Type modifié"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

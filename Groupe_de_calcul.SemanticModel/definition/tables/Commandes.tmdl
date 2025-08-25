@@ -1,0 +1,61 @@
+table Commandes
+	lineageTag: 884d27d0-d8c8-4bd3-9aad-a436c53d3e96
+
+	column CommandeID
+		dataType: int64
+		formatString: 0
+		lineageTag: a7a144fa-62db-48c4-b538-5803558d0418
+		summarizeBy: count
+		sourceColumn: CommandeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientID
+		dataType: int64
+		formatString: 0
+		lineageTag: 2646b578-4e69-4041-850d-49466b7cd331
+		summarizeBy: none
+		sourceColumn: ClientID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateCommande
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 37b12c8f-8811-453a-b21f-6abb2eb00c66
+		summarizeBy: none
+		sourceColumn: DateCommande
+
+		variation Variation
+			isDefault
+			relationship: fc140a09-2da0-4c92-a32f-bc94e74d41b1
+			defaultHierarchy: LocalDateTable_4c2d41e0-5625-4ab2-9cb3-bb2f7cccac72.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Montant (€)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c597857-e4b7-4012-904f-de138d8e4692
+		summarizeBy: sum
+		sourceColumn: Montant (€)
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Commandes = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\hugza\Bureau\powerBI\Commandes.xlsx"), null, true),
+				    Commandes_Sheet = Source{[Item="Commandes",Kind="Sheet"]}[Data],
+				    #"En-têtes promus" = Table.PromoteHeaders(Commandes_Sheet, [PromoteAllScalars=true]),
+				    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"CommandeID", Int64.Type}, {"ClientID", Int64.Type}, {"DateCommande", type date}, {"Montant (€)", Int64.Type}})
+				in
+				    #"Type modifié"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
