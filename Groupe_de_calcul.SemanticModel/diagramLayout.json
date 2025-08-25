@@ -10,10 +10,11 @@
       "nodes": [
         {
           "location": {
-            "x": 0,
-            "y": 25
+            "x": 607,
+            "y": 379
           },
           "nodeIndex": "Donne_Vente",
+          "nodeLineageTag": "24a75b67-ea06-4d74-8d18-277ec07f6481",
           "size": {
             "height": 200,
             "width": 234
@@ -22,10 +23,11 @@
         },
         {
           "location": {
-            "x": 284,
-            "y": 61
+            "x": 266,
+            "y": 353
           },
           "nodeIndex": "Periode",
+          "nodeLineageTag": "5f193527-c046-4bae-a6d0-35f3bf720dab",
           "size": {
             "height": 128,
             "width": 234
@@ -34,8 +36,8 @@
         },
         {
           "location": {
-            "x": 902,
-            "y": -13
+            "x": 621,
+            "y": 89
           },
           "nodeIndex": "Clients",
           "nodeLineageTag": "1de57fae-2486-4c6c-80ff-649241abc87f",
@@ -47,7 +49,7 @@
         },
         {
           "location": {
-            "x": 572,
+            "x": 191,
             "y": 0
           },
           "nodeIndex": "Commandes",
